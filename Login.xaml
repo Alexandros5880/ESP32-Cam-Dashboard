@@ -1,0 +1,39 @@
+﻿<Window x:Class="IPCamera.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IPCamera"
+        mc:Ignorable="d"
+        Title="Login" Width="500" Height="250"
+        Background="#FF151515"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Focusable="True">
+
+    <Grid Margin="40">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*" />
+                <ColumnDefinition Width="56*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Email:" Foreground="#FFB4B4B4" Margin="13,0,0,0" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" x:Name="Email" Margin="10"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*" />
+                <ColumnDefinition Width="56*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Password:" Foreground="#FFB4B4B4" Margin="13,0,0,0" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" x:Name="Password" Margin="10"/>
+        </Grid>
+        <Button Content="Login" Grid.Row="2" Margin="343 10 10 10" Click="Login_Click" />
+    </Grid>
+
+</Window>

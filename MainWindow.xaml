@@ -1,0 +1,110 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="IPCamera.MainWindow"
+        mc:Ignorable="d"
+        Title="IPCameras"
+        WindowState="Maximized"
+        AutomationProperties.Name="IPCameras"
+        Background="Black"
+        ResizeMode="NoResize"
+        WindowStyle="None">
+    <!--
+        WindowStartupLocation="CenterScreen"
+        Height="198.6" Width="1025"
+        MinHeight="633" MinWidth="1206"
+        -->
+
+    <!-- Main Grid -->
+    <Grid x:Name="main_grid" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="39*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <!-- Toolbar -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="193*"/>
+                <ColumnDefinition Width="251*"/>
+                <ColumnDefinition Width="169*"/>
+                <ColumnDefinition Width="155*"/>
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.Column="0">
+                <ToolBarTray DockPanel.Dock="top" Background="black">
+                    <ToolBar>
+                        <Button x:Name="login_logout_b" Content="Loggin"/>
+                        <Button Content="Start"    Click="Start_clicked" />
+                        <Button Content="Stop"     Click="Stop_clicked" />
+                        <Button Content="Settings" Click="Settings_clicked" />
+                    </ToolBar>
+                </ToolBarTray>
+            </DockPanel>
+            <Label Grid.Column="2" x:Name="date" Foreground="#990000"
+                   FontSize="20" FontFamily="Century Gothic" FontStretch="UltraExpanded"
+                   FontWeight="SemiBold"/>
+            <Button Grid.Column="3" Grid.Row="0" Content="X"
+                        FontSize="17" Click="X_Button_Click" 
+                        Height="29" Width="29" Margin="0 2 2 0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="DarkRed"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+
+        <!-- Cameras Grid -->
+        <Grid Grid.Row="1" x:Name="cameras_grid"/>
+
+        <!-- Buttons Grid-->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" >
+                <!--
+                <Button Content="Start"    Width="150" Click="Start_clicked"    />
+                <Button Content="Stop"     Width="150" Click="Stop_clicked"     />
+                <Button Content="Settings" Width="150" Click="Settings_clicked" />
+                -->
+            </StackPanel>
+
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="213*"/>
+                    <ColumnDefinition Width="184*"/>
+                    <ColumnDefinition Width="13*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="18*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="1" Grid.Row="1" Text="© Copyright 2020 Alexandros Platanios" Foreground="Silver" FontStyle="Oblique" FontSize="9" Width="177"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Window>
